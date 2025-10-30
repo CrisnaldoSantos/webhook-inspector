@@ -1,0 +1,33 @@
+import type { ComponentProps } from "react";
+import { tv, type VariantProps } from "tailwind-variants";
+
+const iconButton = tv({
+  base: "flex items-center justify-center rounded-lg hover:bg-zinc-700 transition-colors duration-200",
+  variants: {
+    size: {
+      sm: "size-6",
+      md: "size-8",
+    },
+  },
+  defaultVariants: {
+    size: "md",
+  },
+});
+
+interface IconButtonProps
+  extends ComponentProps<"button">,
+    VariantProps<typeof iconButton> {
+  icon: React.ReactNode;
+}
+export function IconButton({
+  icon,
+  size,
+  className,
+  ...props
+}: IconButtonProps) {
+  return (
+    <button {...props} className={iconButton({ size, className })}>
+      {icon}
+    </button>
+  );
+}
