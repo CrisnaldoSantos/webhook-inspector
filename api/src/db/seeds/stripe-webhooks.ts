@@ -429,11 +429,12 @@ const generateStripeEvent = (type: string) => {
 
 async function seedStripeWebhooks() {
   try {
+    await db.delete(webhooks); // Clear existing data
     console.log("🌱 Seeding Stripe webhooks...");
 
     const webhookRecords = [];
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 40; i++) {
       const eventType = faker.helpers.arrayElement(STRIPE_EVENTS);
       const event = generateStripeEvent(eventType);
 
@@ -446,7 +447,7 @@ async function seedStripeWebhooks() {
         contentLength: JSON.stringify(event).length,
         queryParams: {},
         headers: getStripeHeaders(),
-        body: JSON.stringify(event),
+        body: JSON.stringify(event, null, 2),
         createdAt: faker.date.recent({ days: 30 }),
       });
     }

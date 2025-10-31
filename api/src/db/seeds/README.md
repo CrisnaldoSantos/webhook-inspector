@@ -4,7 +4,7 @@ Este diretório contém scripts para popular o banco de dados com dados de teste
 
 ## Arquivos
 
-- **stripe-webhooks.ts** - Seed de 20 eventos Stripe simulados
+- **stripe-webhooks.ts** - Seed de 40 eventos Stripe simulados
 
 ## Como usar
 
@@ -16,7 +16,7 @@ pnpm db:seed
 
 Este comando irá:
 
-- Gerar 20 registros de webhooks aleatórios
+- Gerar 40 registros de webhooks aleatórios
 - Simular eventos reais do Stripe
 - Preencher todos os campos com dados fake realistas
 
