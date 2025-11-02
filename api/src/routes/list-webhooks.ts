@@ -3,7 +3,6 @@ import { webhooks } from "@/db/schema";
 import { desc, lt } from "drizzle-orm";
 import { createSelectSchema } from "drizzle-zod";
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
-import { request } from "http";
 import { z } from "zod";
 
 export const listWebhooks: FastifyPluginAsyncZod = async (app) => {
